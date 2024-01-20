@@ -6,10 +6,10 @@ import { getAllPosts, createPost, getUserPosts, getPostById, deletePost, updateP
 const router = express.Router();
 
 router.route("/").get(jwtAuth, getUserPosts);
-router.route("/").post(imageUpload.single("image"), createPost);
-router.route("/all").get(getAllPosts);
-router.route("/:id").get(getPostById);
-router.route("/:id").delete(deletePost);
-router.route("/:id").put(updatePost);
+router.route("/").post(jwtAuth, imageUpload.single("image"), createPost);
+router.route("/all").get(jwtAuth, getAllPosts);
+router.route("/:id").get(jwtAuth, getPostById);
+router.route("/:id").delete(jwtAuth, deletePost);
+router.route("/:id").put(jwtAuth, updatePost);
 
 export default router;

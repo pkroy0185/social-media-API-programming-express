@@ -13,7 +13,6 @@ const jwtAuth = (req, res, next) => {
     });
   }catch(err){
     console.log(err);
-    console.log("Hi");
     res.status(401).json({ success: false, msg: "login to continue" })
   }
 };

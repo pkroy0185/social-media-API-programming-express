@@ -2,7 +2,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 import userRouter from "./src/features/user/routes/user.routes.js";
+import commentRouter from "./src/features/comment/routes/comment.routes.js";
 import postRouter from "./src/features/post/routes/post.routes.js";
+import likeRouter from "./src/features/like/routes/like.routes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -16,6 +18,8 @@ let posts = [];
 // User registration
 app.use('/api', userRouter);
 app.use('/api/posts', postRouter);
+app.use('/api/comments', commentRouter)
+app.use('/api/likes', likeRouter)
 
 // User authentication
 app.post('/login', (req, res) => {
